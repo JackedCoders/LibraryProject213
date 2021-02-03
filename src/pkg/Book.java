@@ -13,6 +13,10 @@ public class Book {
         this.datePublished = datePublished;
     }
 
+    public String getNumber (){
+        return this.number;
+    }
+
     @Override
     public boolean equals(Object obj){
         Book newBook = (Book)obj;

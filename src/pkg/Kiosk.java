@@ -24,7 +24,7 @@ public class Kiosk {
                     printError();
                 }
                 String name = stringTokenizer.nextToken();
-                
+
             }else if(input.charAt(0) == 'R'){
                 if(stringTokenizer.countTokens() != 2){
                     printError();
