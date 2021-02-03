@@ -48,7 +48,7 @@ public class Library {
             System.out.println(this.books[i].toString());
         }
     }
-    
+
     public void printByDate() { } //print the list of books by datePublished (ascending)
     public void printByNumber() { } //print the list of books by number (ascending)
 }
