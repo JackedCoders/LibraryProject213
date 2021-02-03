@@ -1,6 +1,7 @@
 package pkg;
 
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Kiosk {
 
@@ -9,6 +10,7 @@ public class Kiosk {
 
         String input = scanner.nextLine();
         while(!input.equals("Q")){
+            StringTokenizer stringTokenizer = new StringTokenizer(input,",");
             if(input.equals("PA")){
 
             }else if(input.equals("PD")){
@@ -16,16 +18,32 @@ public class Kiosk {
             }else if(input.equals("PN")){
 
             }else if(input.charAt(0) == 'A'){
-
+                if(stringTokenizer.countTokens() != 3){
+                    printError();
+                }
             }else if(input.charAt(0) == 'R'){
-
+                if(stringTokenizer.countTokens() != 2){
+                    printError();
+                }
             }else if(input.charAt(0) == 'O'){
+                if(stringTokenizer.countTokens() != 2){
+                    printError();
+                }
 
             }else if(input.charAt(0) == 'I'){
-                
+                if(stringTokenizer.countTokens() != 2){
+                    printError();
+                }
+
+            }else{
+                printError();
             }
 
             input = scanner.nextLine();
         }
+    }
+
+    public void printError(){
+        System.out.println("ERROR: Invalid Input");
     }
 }

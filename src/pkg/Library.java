@@ -3,7 +3,11 @@ package pkg;
 public class Library {
     private Book[] books; // array-based implementation of the bag data structure
     private int numBooks; // the number of books currently in the bag
-    public Library() { } //default constructor to create an empty bag
+
+    public Library() { //default constructor to create an empty bag
+        this.books = new Book[4];
+        this.numBooks = 0;
+    }
     private int find(Book book) { return 0;} // helper method to find a book in the bag
     private void grow() { } // helper method to grow the capacity by 4
     public void add(Book book) { }
