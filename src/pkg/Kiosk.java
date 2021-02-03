@@ -5,6 +5,8 @@ import java.util.StringTokenizer;
 
 public class Kiosk {
 
+    private int curBookNum = 10001;
+
     public void run(){
         Scanner scanner = new Scanner(System.in);
 
@@ -21,6 +23,8 @@ public class Kiosk {
                 if(stringTokenizer.countTokens() != 3){
                     printError();
                 }
+                String name = stringTokenizer.nextToken();
+                
             }else if(input.charAt(0) == 'R'){
                 if(stringTokenizer.countTokens() != 2){
                     printError();
@@ -43,7 +47,7 @@ public class Kiosk {
         }
     }
 
-    public void printError(){
+    private void printError(){
         System.out.println("ERROR: Invalid Input");
     }
 }
