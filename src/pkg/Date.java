@@ -8,6 +8,8 @@ public class Date {
     private int day;
 
     public Date(String date) { //taking mm/dd/yyyy and create a Date object
+
+
         this.month = Integer.valueOf(date.substring(0,2));
         this.day = Integer.valueOf(date.substring(3,5));
         this.year = Integer.valueOf(date.substring(6));
@@ -32,5 +34,14 @@ public class Date {
         return day;
     }
 
-    //public isValid() { }
+    public boolean isValid(String dateString) {
+
+        if(dateString.length() != 10){
+            return false;
+        }
+        char ch = dateString
+        for(int i = 0; i < dateString.length(); i++){
+
+        }
+    }
 }
