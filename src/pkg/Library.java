@@ -37,12 +37,16 @@ public class Library {
             return false;
         }
 
+
+
         System.out.println("Book#"+book.getNumber()+" removed.");
+        numBooks--;
         return true;
     }
 
     public boolean checkOut(Book book) { return false;}
     public boolean returns(Book book) { return false;}
+
     public void print() { //print the list of books in the bag
         for(int i = 0; i<numBooks; i++){
             System.out.println(this.books[i].toString());
