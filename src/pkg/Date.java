@@ -41,7 +41,13 @@ public class Date {
         }
         char ch = dateString
         for(int i = 0; i < dateString.length(); i++){
-
+            if( i == 2 || i == 5){
+                if(dateString.charAt(i) != '/') return false;
+            }
+            else{
+                if(!Character.isDigit(ch)) return false;
+            }
         }
+        return true;
     }
 }
