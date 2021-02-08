@@ -42,17 +42,25 @@ public class Date {
                 returns 0 if both dates are equal
 
          */
-        if(date.getYear() > this.getYear()){
+        if(date.getYear() > this.year){
             return 1;
-        }else if(date.getYear() < this.getYear()){
+        }else if(date.getYear() < this.year){
             return -1;
         }
 
-        if(date.getMonth() > this.getMonth()){
+        if(date.getMonth() > this.month){
             return 1;
-        }else if(date.getMonth() < this.getMonth()){
-            
+        }else if(date.getMonth() < this.month){
+            return -1;
         }
+
+        if(date.getDay() > this.day){
+            return 1;
+        }else if(date.getDay() < this.day){
+            return -1;
+        }
+
+        return 0;
     }
 
     public boolean isValid(String dateString) {
