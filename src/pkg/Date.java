@@ -34,6 +34,27 @@ public class Date {
         return day;
     }
 
+    public int compare(Date date){ //Helper method to determine date order
+        /*
+            Return values:
+                returns 1 if this date precedes the input date
+                returns -1 if this date is after the input date
+                returns 0 if both dates are equal
+
+         */
+        if(date.getYear() > this.getYear()){
+            return 1;
+        }else if(date.getYear() < this.getYear()){
+            return -1;
+        }
+
+        if(date.getMonth() > this.getMonth()){
+            return 1;
+        }else if(date.getMonth() < this.getMonth()){
+            
+        }
+    }
+
     public boolean isValid(String dateString) {
 
         if(dateString.length() != 10){
