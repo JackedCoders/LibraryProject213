@@ -68,7 +68,7 @@ public class Date {
         if(dateString.length() != 10){
             return false;
         }
-        char ch = dateString
+        char ch = dateString.charAt(0);
         for(int i = 0; i < dateString.length(); i++){
             if( i == 2 || i == 5){
                 if(dateString.charAt(i) != '/') return false;
