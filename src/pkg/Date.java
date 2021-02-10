@@ -12,10 +12,10 @@ public class Date {
         if(!isValid(date)){
             System.out.println("ERROR: Invalid date");
         }
-
-        this.month = Integer.valueOf(date.substring(0,2));
-        this.day = Integer.valueOf(date.substring(3,5));
-        this.year = Integer.valueOf(date.substring(6));
+        String [] tokens = date.split("/");
+        this.month = Integer.valueOf(tokens[0]);
+        this.day = Integer.valueOf(tokens[1]);
+        this.year = Integer.valueOf(tokens[2]);
     }
     public Date() { //return today’s date
         Calendar calendar = Calendar.getInstance();
