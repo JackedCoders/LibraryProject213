@@ -33,7 +33,9 @@ public class Kiosk {
                 String num = String.valueOf(curBookNum++);
                 String name = tokens[1];
                 Date datePublished = new Date(tokens[2]);
+
                 lib.add(new Book(num, name, datePublished));
+                System.out.println(name + " added to the library.");
 
             }else if(input.charAt(0) == 'R'){
                 if(stringTokenizer.countTokens() != 2){
@@ -44,16 +46,29 @@ public class Kiosk {
                 if(cur == null){
                     System.out.println("Unable to remove, the library does not have this book.");
                 }else{
-                    lib.remove(cur);
+
+                    if(lib.remove(cur)) { System.out.println("Book#" + tokens[1] + " removed."); }
                 }
             }else if(input.charAt(0) == 'O'){
                 if(stringTokenizer.countTokens() != 2){
                     printError();
                 }
+                Book cur = lib.findBook(tokens[1]);
+                if(cur == null){
+                    System.out.println("Book#" + tokens[1] + " is not available." );
+                }else{
+                    if(lib.checkOut(cur)){ System.out.println("You've checked out Book#" + tokens[1] + ". Enjoy!"); }
+                }
 
             }else if(input.charAt(0) == 'I'){
                 if(stringTokenizer.countTokens() != 2){
                     printError();
+                }
+                Book cur = lib.findBook(tokens[1]);
+                if(cur == null){
+                    System.out.println("Book#" + tokens[1] + " is not available." );
+                }else{
+                    if(lib.checkOut(cur)){ System.out.println("Book#" + tokens[1] + " return has completed. Thanks!"); }
                 }
             }else{
                 printError();

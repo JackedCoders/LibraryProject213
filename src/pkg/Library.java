@@ -86,13 +86,31 @@ public class Library {
     }
 
     public void print() { //print the list of books in the bag
+        System.out.println("** List of books in the library.");
         for(int i = 0; i<numBooks; i++){
             System.out.println(this.books[i].toString());
         }
+        System.out.println("**End of list");
     }
 
     public void printByDate() { //print the list of books by datePublished (ascending)
 
+        int n = numBooks;
+        for(int i = 1; i<n; i++){
+            Book key = books[i];
+            int j = i - 1;
+
+            while(j>= 0 && books[j].getDatePublished().compare(key.getDatePublished()) > 0){
+                books[j+1] = books[j];
+                j = j - 1;
+            }
+            books[j+1] = key;
+        }
+        System.out.println("** List of books by the dates published.");
+        for(int i = 0; i < numBooks; i++){
+            System.out.println(this.books[i].toString());
+        }
+        System.out.println("** End of list");
     }
     public void printByNumber() { //print the list of books by number (ascending)
         int n = numBooks;
@@ -106,9 +124,10 @@ public class Library {
             }
             books[j+1] = key;
         }
-
+        System.out.println("** List of books by the book numbers.");
         for(int i = 0; i < numBooks; i++){
             System.out.println(this.books[i].toString());
         }
+        System.out.println("** End of list");
     }
 }

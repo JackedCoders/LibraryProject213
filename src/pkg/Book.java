@@ -17,6 +17,10 @@ public class Book {
         return this.number;
     }
 
+    public Date getDatePublished(){
+        return this.datePublished;
+    }
+
     public boolean isCheckedOut () {
         return this.checkedOut;
     }
