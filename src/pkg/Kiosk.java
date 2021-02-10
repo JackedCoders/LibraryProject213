@@ -16,8 +16,9 @@ public class Kiosk {
         System.out.println("Library Kiosk running.");
         Scanner scanner = new Scanner(System.in);
 
-        String input = scanner.nextLine();
+        String input = "";
         while(!input.equals("Q")){
+            input = scanner.nextLine();
             StringTokenizer stringTokenizer = new StringTokenizer(input,",");
             String [] tokens = input.split(",");
 
@@ -33,24 +34,28 @@ public class Kiosk {
             } else if(input.charAt(0) == 'A'){
                 if(stringTokenizer.countTokens() != 3){
                     printError();
+                    continue;
                 }
                 String num = String.valueOf(curBookNum++);
                 String name = tokens[1];
                 try {
                     Date datePublished = new Date(tokens[2]);
                     if(!datePublished.isValid()){
+                        System.out.println("error1");
                         dateError();
                     }else {
                         lib.add(new Book(num, name, datePublished));
                         System.out.println(name + " added to the library.");
                     }
                 }catch(Exception e) {
+                    System.out.println("error2");
                     dateError();
                 }
 
             }else if(input.charAt(0) == 'R'){
                 if(stringTokenizer.countTokens() != 2){
                     printError();
+                    continue;
                 }
 
                 Book cur = lib.findBook(tokens[1]);
@@ -61,9 +66,12 @@ public class Kiosk {
                     if(lib.remove(cur)) { System.out.println("Book#" + tokens[1] + " removed."); }
                     else { System.out.println("Unable to remove, the library does not have this book."); }
                 }
-            }else if(input.charAt(0) == 'O'){
+            }
+            // CHECKOUT BOOK
+            else if(input.charAt(0) == 'O'){
                 if(stringTokenizer.countTokens() != 2){
                     printError();
+                    continue;
                 }
                 Book cur = lib.findBook(tokens[1]);
                 if(cur == null){
@@ -73,9 +81,12 @@ public class Kiosk {
                     else{ System.out.println("Book#" + tokens[1] + "is not available."); }
                 }
 
-            }else if(input.charAt(0) == 'I'){
+            }
+            // RETURN BOOK
+            else if(input.charAt(0) == 'I'){
                 if(stringTokenizer.countTokens() != 2){
                     printError();
+                    continue;
                 }
                 Book cur = lib.findBook(tokens[1]);
                 if(cur == null){
@@ -84,11 +95,13 @@ public class Kiosk {
                     if(lib.checkOut(cur)){ System.out.println("Book#" + tokens[1] + " return has completed. Thanks!"); }
                     else{ System.out.println("Unable to return Book#" + tokens[1] + "."); }
                 }
-            }else{
+            }
+            // INVALID INPUT
+            else{
                 printError();
             }
 
-            input = scanner.nextLine();
+
         }
     }
 

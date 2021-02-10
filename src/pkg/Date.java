@@ -19,6 +19,7 @@ public class Date {
          */
 
         String [] tokens = date.split("/");
+        if(tokens.length != 3){ throw new NumberFormatException(); }
         this.month = Integer.valueOf(tokens[0]);
         this.day = Integer.valueOf(tokens[1]);
         this.year = Integer.valueOf(tokens[2]);
@@ -87,12 +88,12 @@ public class Date {
     }
 
     public boolean isValid() {
-        if(year < 1 || year > 2021){
+        if(year < 1900 || year > 2021){
             return false;
         }
         boolean isLeapYear = isLeapYear(year);
         Date today = new Date();
-        if(this.compare(today) > 1){
+        if(this.compare(today) > 0){
             return false;
         }
 

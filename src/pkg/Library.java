@@ -85,6 +85,10 @@ public class Library {
     }
 
     public void print() { //print the list of books in the bag
+        if(numBooks == 0){
+            System.out.println("Library catalog is empty!");
+            return;
+        }
         System.out.println("** List of books in the library.");
         for(int i = 0; i<numBooks; i++){
             System.out.println(this.books[i].toString());
@@ -95,6 +99,10 @@ public class Library {
     public void printByDate() { //print the list of books by datePublished (ascending)
 
         int n = numBooks;
+        if(n == 0){
+            System.out.println("Bookshelf is empty!");
+            return;
+        }
         for(int i = 1; i<n; i++){
             Book key = books[i];
             int j = i - 1;
@@ -113,6 +121,9 @@ public class Library {
     }
     public void printByNumber() { //print the list of books by number (ascending)
         int n = numBooks;
+        if(n == 0){
+            System.out.println();
+        }
         for(int i = 1; i < n; i++){
             Book key = books[i];
             int j = i - 1;
