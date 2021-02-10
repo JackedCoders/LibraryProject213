@@ -48,6 +48,7 @@ public class Kiosk {
                 }else{
 
                     if(lib.remove(cur)) { System.out.println("Book#" + tokens[1] + " removed."); }
+                    else { System.out.println("Unable to remove, the library does not have this book."); }
                 }
             }else if(input.charAt(0) == 'O'){
                 if(stringTokenizer.countTokens() != 2){
@@ -58,6 +59,7 @@ public class Kiosk {
                     System.out.println("Book#" + tokens[1] + " is not available." );
                 }else{
                     if(lib.checkOut(cur)){ System.out.println("You've checked out Book#" + tokens[1] + ". Enjoy!"); }
+                    else{ System.out.println("Book#" + tokens[1] + "is not available."); }
                 }
 
             }else if(input.charAt(0) == 'I'){
@@ -69,6 +71,7 @@ public class Kiosk {
                     System.out.println("Book#" + tokens[1] + " is not available." );
                 }else{
                     if(lib.checkOut(cur)){ System.out.println("Book#" + tokens[1] + " return has completed. Thanks!"); }
+                    else{ System.out.println("Unable to return Book#" + tokens[1] + "."); }
                 }
             }else{
                 printError();

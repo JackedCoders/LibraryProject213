@@ -41,15 +41,12 @@ public class Library {
     public boolean remove(Book book) {
         int index = find(book);
         if(index == -1) {
-            System.out.println("Unable to remove, the library does not have this book.");
             return false;
         }
         books[index] = null;
         for(int i = index; i < numBooks; i++){
             books[i] = books[i+1];
         }
-
-        System.out.println("Book#"+book.getNumber()+" removed.");
         numBooks--;
         return true;
     }
@@ -57,12 +54,11 @@ public class Library {
     public boolean checkOut(Book book) {
         int index = find(book);
         if(index == -1){
-            System.out.println("Book#" + book.getNumber() + "is not available.");
+
             return false;
         }
 
         if(books[index].isCheckedOut()){
-            System.out.println("Book#" + book.getNumber() + "is not available.");
             return false;
         }
 
@@ -72,12 +68,10 @@ public class Library {
     public boolean returns(Book book) {
         int index = find(book);
         if(index == -1){
-            System.out.println("Unable to return Book#" + book.getNumber() + ".");
             return false;
         }
 
         if(!books[index].isCheckedOut()){
-            System.out.println("Unable to return Book#" + book.getNumber() + ".");
             return false;
         }
 

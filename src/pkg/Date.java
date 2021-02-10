@@ -33,13 +33,15 @@ public class Date {
         if(month<10){
             mm = "0" + mm;
         }
+        date = mm + "/";
         String dd = String.valueOf(day);
         if(day<10){
             dd = "0" + dd;
         }
+        date = date + dd + "/";
         String yyyy = String.valueOf(year);
+        date = date + yyyy;
 
-        String date = mm + "/" + dd + "/" + yyyy;
         return date;
     }
 
