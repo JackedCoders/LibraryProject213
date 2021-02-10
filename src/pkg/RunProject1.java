@@ -28,7 +28,7 @@ public class RunProject1 {
         boolean test5 = date5.isValid();
         System.out.println("Test 5 result: " + test5);
 
-        Date date6 = new Date("3/32/2009");
+        Date date6 = new Date("2/9/2021");
         boolean test6 = date6.isValid();
         System.out.println("Test 6 result: " + test6);
 
@@ -43,6 +43,10 @@ public class RunProject1 {
         Date date9 = new Date("3/30/2021");
         boolean test9 = date9.isValid();
         System.out.println("Test 9 result: " + test9);
+
+        Date date10 = new Date("0200/23/404040");
+        boolean test10 = date10.isValid();
+        System.out.println("Test 10 result: " + test10);
 
 
     }

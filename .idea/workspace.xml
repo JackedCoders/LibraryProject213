@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e1346fbd-7ff8-4acc-927d-2f94dfc8fc4d" name="Default Changelist" comment="">
+    <list default="true" id="e1346fbd-7ff8-4acc-927d-2f94dfc8fc4d" name="Default Changelist" comment="Testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LibraryProject213/pkg/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LibraryProject213/pkg/Book.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LibraryProject213/pkg/Date.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LibraryProject213/pkg/Date.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LibraryProject213/pkg/Kiosk.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LibraryProject213/pkg/Kiosk.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LibraryProject213/pkg/Library.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LibraryProject213/pkg/Library.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LibraryProject213/pkg/RunProject1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LibraryProject213/pkg/RunProject1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pkg/RunProject1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pkg/RunProject1.java" afterDir="false" />
     </list>
@@ -64,6 +60,29 @@
       <option name="presentableId" value="Default" />
       <updated>1612051481428</updated>
     </task>
+    <task id="LOCAL-00001" summary="Testing">
+      <created>1612928411696</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1612928411696</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing" />
   </component>
 </project>
