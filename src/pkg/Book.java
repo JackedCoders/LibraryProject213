@@ -40,7 +40,11 @@ public class Book {
 
     @Override
     public String toString() {
-
-        return "Book"+this.number+"::"+this.name+"::"+datePublished.toString();
+        if(!checkedOut) {
+            return "Book" + this.number + "::" + this.name + "::" + datePublished.toString() + "::is available.";
+        }
+        else{
+            return "Book" + this.number + "::" + this.name + "::" + datePublished.toString() + "::is checked out.";
+        }
     }
 }

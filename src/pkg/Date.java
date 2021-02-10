@@ -25,6 +25,7 @@ public class Date {
         day = calendar.get(Calendar.DAY_OF_MONTH);
     }
 
+    @Override
     public String toString(){
         String date = "";
 
@@ -33,7 +34,13 @@ public class Date {
             mm = "0" + mm;
         }
         String dd = String.valueOf(day);
-        //if()
+        if(day<10){
+            dd = "0" + dd;
+        }
+        String yyyy = String.valueOf(year);
+
+        String date = mm + "/" + dd + "/" + yyyy;
+        return date;
     }
 
     public int getYear() {
