@@ -17,9 +17,6 @@ public class Date {
 
 
          */
-        if(!isValid(date)){
-            return;
-        }
 
         String [] tokens = date.split("/");
         this.month = Integer.valueOf(tokens[0]);
@@ -95,15 +92,21 @@ public class Date {
         return 0;
     }
 
-    public boolean isValid(String dateString) {
-
-        String [] tokens = dateString.split("/");
-
-        int month = Integer.parseInt(tokens[0]);
-        int day = Integer.parseInt(tokens[1]);
-        int year = Integer.parseInt(tokens[2]);
+    public boolean isValid() {
+        boolean isLeapYear = isLeapYear(year);
         if(month < 1 || month > 12){
             return false;
+        }
+        if(month == 2){
+            if(isLeapYear){
+                if(day < 1 || day > 29){
+                    return false;
+                }
+            }else{
+                if(day < 1 || day > 28){
+                    return false;
+                }
+            }
         }
         if(day < 1 || day > 31){
             return false;
