@@ -36,10 +36,17 @@ public class Kiosk {
                 }
                 String num = String.valueOf(curBookNum++);
                 String name = tokens[1];
-                Date datePublished = new Date(tokens[2]);
-
-                lib.add(new Book(num, name, datePublished));
-                System.out.println(name + " added to the library.");
+                try {
+                    Date datePublished = new Date(tokens[2]);
+                    if(!datePublished.isValid()){
+                        dateError();
+                    }else {
+                        lib.add(new Book(num, name, datePublished));
+                        System.out.println(name + " added to the library.");
+                    }
+                }catch(Exception e) {
+                    dateError();
+                }
 
             }else if(input.charAt(0) == 'R'){
                 if(stringTokenizer.countTokens() != 2){
@@ -88,5 +95,9 @@ public class Kiosk {
     private void printError(){
 
         System.out.println("Invalid command!");
+    }
+
+    private void dateError(){
+        System.out.println("Invalid Date!");
     }
 }

@@ -36,14 +36,8 @@ public class Date {
         String date = "";
 
         String mm = String.valueOf(month);
-        if(month<10){
-            mm = "0" + mm;
-        }
         date = mm + "/";
         String dd = String.valueOf(day);
-        if(day<10){
-            dd = "0" + dd;
-        }
         date = date + dd + "/";
         String yyyy = String.valueOf(year);
         date = date + yyyy;
@@ -93,7 +87,15 @@ public class Date {
     }
 
     public boolean isValid() {
+        if(year < 1 || year > 2021){
+            return false;
+        }
         boolean isLeapYear = isLeapYear(year);
+        Date today = new Date();
+        if(this.compare(today) > 1){
+            return false;
+        }
+
         if(month < 1 || month > 12){
             return false;
         }
@@ -108,12 +110,16 @@ public class Date {
                 }
             }
         }
-        if(day < 1 || day > 31){
-            return false;
+        if(month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12){
+            if(day < 1 || day > 31){
+                return false;
+            }
+        }else{
+            if(day < 1 || day > 30){
+                return false;
+            }
         }
-        if(year < 1 || year > 2021){
-            return false;
-        }
+
         return true;
     }
 
