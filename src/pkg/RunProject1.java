@@ -40,7 +40,7 @@ public class RunProject1 {
         boolean test8 = date8.isValid();
         System.out.println("Test 8 result: " + test8);
 
-        Date date9 = new Date("3/30/2021");
+        Date date9 = new Date("1/32/2021");
         boolean test9 = date9.isValid();
         System.out.println("Test 9 result: " + test9);
 
