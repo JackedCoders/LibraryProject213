@@ -25,6 +25,17 @@ public class Date {
         day = calendar.get(Calendar.DAY_OF_MONTH);
     }
 
+    public String toString(){
+        String date = "";
+
+        String mm = String.valueOf(month);
+        if(month<10){
+            mm = "0" + mm;
+        }
+        String dd = String.valueOf(day);
+        //if()
+    }
+
     public int getYear() {
         return year;
     }
@@ -71,6 +82,8 @@ public class Date {
         if(dateString.length() != 10){
             return false;
         }
+        String [] tokens = dateString.split("/");
+
         char ch = dateString.charAt(0);
         for(int i = 0; i < dateString.length(); i++){
             if( i == 2 || i == 5){
@@ -80,6 +93,10 @@ public class Date {
                 if(!Character.isDigit(ch)) return false;
             }
         }
+
+        int month = Integer.parseInt(tokens[0]);
+        int day = Integer.parseInt(tokens[1]);
+        int year = Integer.parseInt(tokens[2]);
         return true;
     }
 }

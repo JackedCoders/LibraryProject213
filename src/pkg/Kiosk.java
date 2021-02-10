@@ -9,6 +9,7 @@ public class Kiosk {
     private int curBookNum = 10001;
 
     public void run(){
+        System.out.println("Library Kiosk running.");
         Scanner scanner = new Scanner(System.in);
 
         String input = scanner.nextLine();
@@ -22,7 +23,10 @@ public class Kiosk {
                 lib.printByDate();
             }else if(input.equals("PN")){
                 lib.printByNumber();
-            }else if(input.charAt(0) == 'A'){
+            }else if( input.equals("Q")){
+                System.out.print("Kiosk session ended.");
+                break;
+            } else if(input.charAt(0) == 'A'){
                 if(stringTokenizer.countTokens() != 3){
                     printError();
                 }
@@ -34,6 +38,13 @@ public class Kiosk {
             }else if(input.charAt(0) == 'R'){
                 if(stringTokenizer.countTokens() != 2){
                     printError();
+                }
+
+                Book cur = lib.findBook(tokens[1]);
+                if(cur == null){
+                    System.out.println("Unable to remove, the library does not have this book.");
+                }else{
+                    lib.remove(cur);
                 }
             }else if(input.charAt(0) == 'O'){
                 if(stringTokenizer.countTokens() != 2){
@@ -54,6 +65,6 @@ public class Kiosk {
 
     private void printError(){
 
-        System.out.println("ERROR: Invalid Input.");
+        System.out.println("Invalid command!");
     }
 }

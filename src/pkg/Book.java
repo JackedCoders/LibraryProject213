@@ -17,7 +17,9 @@ public class Book {
         return this.number;
     }
 
-    public boolean isCheckedOut () { return this.checkedOut; }
+    public boolean isCheckedOut () {
+        return this.checkedOut;
+    }
 
     public void setCheckedOut () {
         this.checkedOut = true;
@@ -39,6 +41,6 @@ public class Book {
     @Override
     public String toString() {
 
-        return "Book"+this.number+"::"+this.name+"::";
+        return "Book"+this.number+"::"+this.name+"::"+datePublished.toString();
     }
 }

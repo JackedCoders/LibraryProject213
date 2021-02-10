@@ -22,6 +22,14 @@ public class Library {
         Book [] newBooks = Arrays.copyOf(this.books,this.books.length+4);
         this.books = newBooks;
     }
+    public Book findBook(String number){
+        for(int i = 0; i < books.length; i++){
+            if(books[i].getNumber().equals(number)){
+                return books[i];
+            }
+        }
+        return null;
+    }
 
     public void add(Book book) {
         if(numBooks == books.length){
@@ -87,6 +95,20 @@ public class Library {
 
     }
     public void printByNumber() { //print the list of books by number (ascending)
+        int n = numBooks;
+        for(int i = 1; i < n; i++){
+            Book key = books[i];
+            int j = i - 1;
 
+            while(j >= 0 && Integer.valueOf(books[j].getNumber()) > Integer.valueOf(key.getNumber())){
+                books[j+1] = books[j];
+                j = j-1;
+            }
+            books[j+1] = key;
+        }
+
+        for(int i = 0; i < numBooks; i++){
+            System.out.println(this.books[i].toString());
+        }
     }
 }
