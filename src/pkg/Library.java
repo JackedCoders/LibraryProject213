@@ -24,10 +24,13 @@ public class Library {
         return -1;
     }
     private void grow() { // helper method to grow the capacity by 4
-        Book [] newBooks = Arrays.copyOf(this.books,this.books.length+4);
+        Book [] newBooks = new Book[books.length+4];
+        for(int i = 0; i < books.length; i++){
+            newBooks[i] = books[i];
+        }
         this.books = newBooks;
     }
-    public Book findBook(String number){
+    public Book findBook(String number){ //Find book number given object
         for(int i = 0; i < books.length; i++){
             if(books[i].getNumber().equals(number)){
                 return books[i];
@@ -37,10 +40,11 @@ public class Library {
     }
 
     public void add(Book book) {
-        if(numBooks == books.length){
+        if(numBooks+1 == books.length){
             this.grow();
         }
-        books[++numBooks] = book;
+        books[numBooks+1] = book;
+        numBooks++;
     }
 
     public boolean remove(Book book) {
@@ -90,8 +94,10 @@ public class Library {
             return;
         }
         System.out.println("** List of books in the library.");
-        for(int i = 0; i<numBooks; i++){
-            System.out.println(this.books[i].toString());
+        for(int i = 0; i<=numBooks; i++){
+            if(books[i] != null){
+                System.out.println(this.books[i].toString());
+            }
         }
         System.out.println("**End of list");
     }
@@ -107,15 +113,17 @@ public class Library {
             Book key = books[i];
             int j = i - 1;
 
-            while(j>= 0 && books[j].getDatePublished().compare(key.getDatePublished()) > 0){
+            while((books[j] != null && books[i] != null) && j>= 0 && books[j].getDatePublished().compare(key.getDatePublished()) > 0){
                 books[j+1] = books[j];
                 j = j - 1;
             }
             books[j+1] = key;
         }
         System.out.println("** List of books by the dates published.");
-        for(int i = 0; i < numBooks; i++){
-            System.out.println(this.books[i].toString());
+        for(int i = 0; i <= numBooks; i++){
+            if(books[i] != null) {
+                System.out.println(this.books[i].toString());
+            }
         }
         System.out.println("** End of list");
     }
@@ -128,15 +136,17 @@ public class Library {
             Book key = books[i];
             int j = i - 1;
 
-            while(j >= 0 && Integer.valueOf(books[j].getNumber()) > Integer.valueOf(key.getNumber())){
+            while((books[j] != null && books[i] != null) && j >= 0 && Integer.valueOf(books[j].getNumber()) > Integer.valueOf(key.getNumber())){
                 books[j+1] = books[j];
                 j = j-1;
             }
             books[j+1] = key;
         }
         System.out.println("** List of books by the book numbers.");
-        for(int i = 0; i < numBooks; i++){
-            System.out.println(this.books[i].toString());
+        for(int i = 0; i <= numBooks; i++){
+            if(books[i] != null) {
+                System.out.println(this.books[i].toString());
+            }
         }
         System.out.println("** End of list");
     }

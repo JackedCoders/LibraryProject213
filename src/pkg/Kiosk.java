@@ -41,7 +41,7 @@ public class Kiosk {
                 try {
                     Date datePublished = new Date(tokens[2]);
                     if(!datePublished.isValid()){
-                        System.out.println("error1");
+                        //System.out.println("error1");
                         dateError();
                     }else {
                         lib.add(new Book(num, name, datePublished));
