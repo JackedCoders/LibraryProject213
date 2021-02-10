@@ -1,3 +1,7 @@
+/*
+    CS 213 Project 1
+    Authors: Prasidh Sriram & Manveer Singh
+ */
 package pkg;
 
 import java.util.Calendar;
@@ -8,10 +12,12 @@ public class Date {
     private int day;
 
     public Date(String date) { //taking mm/dd/yyyy and create a Date object
+        /*
+            Input Format: m/d/yyyy || mm/d/yyyy || m/dd/yyyy || mm/dd/yyyy
 
-        if(!isValid(date)){
-            System.out.println("ERROR: Invalid date");
-        }
+
+         */
+
         String [] tokens = date.split("/");
         this.month = Integer.valueOf(tokens[0]);
         this.day = Integer.valueOf(tokens[1]);
@@ -88,24 +94,36 @@ public class Date {
 
     public boolean isValid(String dateString) {
 
-        if(dateString.length() != 10){
-            return false;
-        }
         String [] tokens = dateString.split("/");
-
-        char ch = dateString.charAt(0);
-        for(int i = 0; i < dateString.length(); i++){
-            if( i == 2 || i == 5){
-                if(dateString.charAt(i) != '/') return false;
-            }
-            else{
-                if(!Character.isDigit(ch)) return false;
-            }
-        }
 
         int month = Integer.parseInt(tokens[0]);
         int day = Integer.parseInt(tokens[1]);
         int year = Integer.parseInt(tokens[2]);
+        if(month < 1 || month > 12){
+            return false;
+        }
+        if(day < 1 || day > 31){
+            return false;
+        }
+        if(year < 1 || year > 2021){
+            return false;
+        }
         return true;
+    }
+
+    private boolean isLeapYear(int year){
+        if(year < 1 || year > 9999){
+            return false;
+        }
+        if(year % 4 == 0){
+            if(year % 100 == 0){
+                if(year % 400 == 0){
+                    return true;
+                }
+            }else{
+                return true;
+            }
+        }
+        return false;
     }
 }

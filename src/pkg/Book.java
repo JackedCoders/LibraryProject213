@@ -1,5 +1,8 @@
+/*
+    CS 213 Project 1
+    Authors: Prasidh Sriram & Manveer Singh
+ */
 package pkg;
-
 public class Book {
     private String number;
     private String name;

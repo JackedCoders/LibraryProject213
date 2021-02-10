@@ -1,3 +1,8 @@
+/*
+    CS 213 Project 1
+    Authors: Prasidh Sriram & Manveer Singh
+ */
+
 package pkg;
 
 import java.util.Arrays;
