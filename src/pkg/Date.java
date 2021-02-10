@@ -17,6 +17,9 @@ public class Date {
 
 
          */
+        if(!isValid(date)){
+            return;
+        }
 
         String [] tokens = date.split("/");
         this.month = Integer.valueOf(tokens[0]);
