@@ -9,6 +9,9 @@ public class Date {
 
     public Date(String date) { //taking mm/dd/yyyy and create a Date object
 
+        if(!isValid(date)){
+            System.out.println("ERROR: Invalid date");
+        }
 
         this.month = Integer.valueOf(date.substring(0,2));
         this.day = Integer.valueOf(date.substring(3,5));
@@ -37,27 +40,27 @@ public class Date {
     public int compare(Date date){ //Helper method to determine date order
         /*
             Return values:
-                returns 1 if this date precedes the input date
-                returns -1 if this date is after the input date
+                returns -1 if this date precedes the input date
+                returns 1 if this date is after the input date
                 returns 0 if both dates are equal
 
          */
         if(date.getYear() > this.year){
-            return 1;
-        }else if(date.getYear() < this.year){
             return -1;
+        }else if(date.getYear() < this.year){
+            return 1;
         }
 
         if(date.getMonth() > this.month){
-            return 1;
-        }else if(date.getMonth() < this.month){
             return -1;
+        }else if(date.getMonth() < this.month){
+            return 1;
         }
 
         if(date.getDay() > this.day){
-            return 1;
-        }else if(date.getDay() < this.day){
             return -1;
+        }else if(date.getDay() < this.day){
+            return 1;
         }
 
         return 0;

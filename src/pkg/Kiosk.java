@@ -5,6 +5,7 @@ import java.util.StringTokenizer;
 
 public class Kiosk {
 
+    Library lib = new Library();
     private int curBookNum = 10001;
 
     public void run(){
@@ -13,17 +14,22 @@ public class Kiosk {
         String input = scanner.nextLine();
         while(!input.equals("Q")){
             StringTokenizer stringTokenizer = new StringTokenizer(input,",");
+            String [] tokens = input.split(",");
+
             if(input.equals("PA")){
-
+                lib.print();
             }else if(input.equals("PD")){
-
+                lib.printByDate();
             }else if(input.equals("PN")){
-
+                lib.printByNumber();
             }else if(input.charAt(0) == 'A'){
                 if(stringTokenizer.countTokens() != 3){
                     printError();
                 }
-                String name = stringTokenizer.nextToken();
+                String num = String.valueOf(curBookNum++);
+                String name = tokens[1];
+                Date datePublished = new Date(tokens[2]);
+                lib.add(new Book(num, name, datePublished));
 
             }else if(input.charAt(0) == 'R'){
                 if(stringTokenizer.countTokens() != 2){
@@ -38,7 +44,6 @@ public class Kiosk {
                 if(stringTokenizer.countTokens() != 2){
                     printError();
                 }
-
             }else{
                 printError();
             }
@@ -48,6 +53,7 @@ public class Kiosk {
     }
 
     private void printError(){
-        System.out.println("ERROR: Invalid Input");
+
+        System.out.println("ERROR: Invalid Input.");
     }
 }

@@ -36,16 +36,46 @@ public class Library {
             System.out.println("Unable to remove, the library does not have this book.");
             return false;
         }
-
-
+        books[index] = null;
+        for(int i = index; i < numBooks; i++){
+            books[i] = books[i+1];
+        }
 
         System.out.println("Book#"+book.getNumber()+" removed.");
         numBooks--;
         return true;
     }
 
-    public boolean checkOut(Book book) { return false;}
-    public boolean returns(Book book) { return false;}
+    public boolean checkOut(Book book) {
+        int index = find(book);
+        if(index == -1){
+            System.out.println("Book#" + book.getNumber() + "is not available.");
+            return false;
+        }
+
+        if(books[index].isCheckedOut()){
+            System.out.println("Book#" + book.getNumber() + "is not available.");
+            return false;
+        }
+
+        books[index].setCheckedOut();
+        return true;
+    }
+    public boolean returns(Book book) {
+        int index = find(book);
+        if(index == -1){
+            System.out.println("Unable to return Book#" + book.getNumber() + ".");
+            return false;
+        }
+
+        if(!books[index].isCheckedOut()){
+            System.out.println("Unable to return Book#" + book.getNumber() + ".");
+            return false;
+        }
+
+        books[index].setReturned();
+        return true;
+    }
 
     public void print() { //print the list of books in the bag
         for(int i = 0; i<numBooks; i++){
@@ -53,6 +83,10 @@ public class Library {
         }
     }
 
-    public void printByDate() { } //print the list of books by datePublished (ascending)
-    public void printByNumber() { } //print the list of books by number (ascending)
+    public void printByDate() { //print the list of books by datePublished (ascending)
+
+    }
+    public void printByNumber() { //print the list of books by number (ascending)
+
+    }
 }

@@ -17,6 +17,16 @@ public class Book {
         return this.number;
     }
 
+    public boolean isCheckedOut () { return this.checkedOut; }
+
+    public void setCheckedOut () {
+        this.checkedOut = true;
+    }
+
+    public void setReturned () {
+        this.checkedOut = false;
+    }
+
     @Override
     public boolean equals(Object obj){
         Book newBook = (Book)obj;
